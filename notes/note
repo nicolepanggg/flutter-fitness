@@ -1,0 +1,148 @@
+Reference link
+https://www.youtube.com/watch?v=JlBiLW-2HXk
+https://www.youtube.com/watch?v=D4nhaszNW4o
+
+Create project
+flutter create fitness
+
+What is scaffold?
+Scaffold is provide widget discription the user interface, included drawer, appbar, snack bar, float action button, bottom navigation bar
+
+commond:
+flutter pub get
+
+在 Flutter 專案中，執行 flutter pub get 指令的作用是：
+
+下載並安裝依賴套件：
+它會根據 pubspec.yaml 檔案中列出的依賴套件，從 Pub（Dart 的套件管理器）下載指定的套件及其依賴，並將它們安裝到專案的 .dart_tool/package_config.json 和 pubspec.lock 檔案中。
+生成 pubspec.lock 檔案：
+如果專案還沒有 pubspec.lock 檔案，flutter pub get 會生成一個，記錄所有依賴套件的具體版本號，以確保專案在不同環境中的一致性。
+更新依賴版本：
+如果你在 pubspec.yaml 中更新了套件的版本範圍，執行 flutter pub get 會下載符合條件的新版本，並更新 pubspec.lock。
+初始化專案環境：
+在新克隆的專案或首次設置時，執行此指令能確保專案具備所有必要的依賴套件，以便開始開發。
+使用情境
+在修改 pubspec.yaml（如添加、移除或更新套件）後，執行 flutter pub get 以應用變更。
+當你克隆一個 Flutter 專案時，需運行此指令來下載所有依賴。
+確保團隊成員或不同環境中使用相同的套件版本。
+
+Add "flutter_svg: ^1.1.6" into pubspec.yaml
+
+在 Flutter 中，GestureDetector 是一個用於檢測和處理用戶手勢的 Widget，主要作用是為子 Widget 提供手勢交互功能，讓應用程式能夠響應用戶的觸控操作，例如點擊、雙擊、長按、拖曳、縮放等。
+
+
+13:22
+
+可否解釋
+Widget build(BuildContext context) {
+    return Scaffold(  //提供標準的應用程式結構，例如應用欄（AppBar）、主體（body）、浮動按鈕等
+      appBar: appBar() // 的一個屬性，用於定義頂部的應用欄
+      body: Column(  // Column 是一個垂直排列子 Widget 的佈局 Widget
+        children: [ // children 是 Column 的屬性，接受一個 Widget 列表，表示將垂直排列的子 Widget
+          Container(  //是一個通用的 Widget，用於設置子 Widget 的外觀和佈局（例如邊距、填充、裝飾等）
+            margin: EdgeInsets.only(top: 40, left: 20, right: 20),  //與其周圍 Widget 的外距。這裡使用 EdgeInsets.only 指定頂部 40 像素、左邊 20 像素、右邊 20 像素的外距，底部外距為 0
+            decoration: BoxDecoration( //用於定義其視覺樣式（如背景色、邊框、陰影等）
+              boxShadow: [
+                BoxShadow(
+                  // ignore: deprecated_member_use
+                  color: Color(0xff1D1617).withOpacity(0.11),
+                  blurRadius: 40,
+                  spreadRadius: 0.0,
+                ),
+              ],
+            ),
+            child: TextField(
+              decoration: InputDecoration( //用於自訂輸入框的外觀
+                filled: true, //表示啟用輸入框的背景填充 //
+                fillColor: Colors.white, //定義輸入框內文字與邊框的內距
+                contentPadding: EdgeInsets.all(15),
+                hintText: 'Search Pancake',
+                hintStyle: TextStyle(color: Color(0xffDDDADA), fontSize: 14),
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: SvgPicture.asset('assets/icons/Search.svg'),
+                ),
+                suffixIcon: Container(
+                  width: 100,
+                  child: IntrinsicHeight(  //IntrinsicHeight 是一個 Widget，強制其子 Widget 的高度適應內容的最大內在高度
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end, //水平對齊方式,表示子 Widget 靠右對齊
+                      children: [
+                        VerticalDivider(
+                          color: Colors.black,
+                          indent: 10,
+                          endIndent: 10,
+                          thickness: 0.1,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SvgPicture.asset('assets/icons/Filter.svg'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide.none, //表示邊框線不可見
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+    //return Container();
+  }
+
+StatelessWidget 及 StatefulWidget 有什麼分別:
+
+在 Flutter 框架中，StatelessWidget 和 StatefulWidget 是用來構建用戶界面 (UI) 的兩種主要 Widget 類型，它們的主要區別在於是否需要管理狀態 (state)。以下是它們的詳細比較：
+
+1. StatelessWidget
+定義: StatelessWidget 是無狀態的 Widget，表示它們的內容和外觀在創建後不會改變，除非父 Widget 重新構建它們。
+特點:
+用於顯示靜態內容，數據一旦設定就不會改變。
+不需要管理內部狀態，適合簡單、固定的 UI 組件（如標籤、圖標、靜態文字等）。
+當父 Widget 的數據改變時，StatelessWidget 會被重新構建。
+實現方式簡單，只需重寫 build 方法。
+使用場景:
+靜態頁面或不依賴用戶交互改變的 UI，例如應用程式的標題、靜態圖片或固定的按鈕。
+
+2. StatefulWidget
+定義: StatefulWidget 是有狀態的 Widget，它可以隨著用戶交互或數據變化而動態更新 UI。
+特點:
+包含一個與之關聯的 State 對象，用於管理 Widget 的狀態。
+當狀態改變時，通過調用 setState 方法觸發重新構建 (rebuild)，更新 UI。
+適合需要動態更新的場景，例如表單輸入、計數器、動畫等。
+結構較複雜，包含 StatefulWidget 本身和其對應的 State 類。
+使用場景:
+需要響應用戶交互或數據變化的 UI，例如計數器、表單、動態列表等。
+
+ListView.builder 及 ListView.separated 分別?
+ListView.builder
+定義: ListView.builder 是一個高效的列表構造器，根據需求動態創建列表項（item），適合顯示大量數據的滾動列表。
+特點:
+僅為可見區域的列表項創建 Widget，節省記憶體和提高性能（懶加載）。
+需要提供 itemCount（列表項總數）和 itemBuilder（用於構建每個列表項的回調函數）。
+不內建分隔線，需自行在 itemBuilder 中設計分隔線（若需要）。
+
+ListView.separated
+除了 itemCount 和 itemBuilder 外，還需要提供 separatorBuilder，用於定義每個列表項之間的分隔線 Widget。
+自動在每兩個列表項之間插入分隔線，無需在 itemBuilder 中手動處理分隔線邏輯。
+同樣支援懶加載，僅為可見區域創建 Widget，性能高效。
+分隔線的數量為 itemCount - 1（因為分隔線出現在項目之間）。
+
+使用場景:
+需要在列表項之間顯示分隔線的場景，例如分隔線條、間距或自定義分隔 Widget。
+適合需要清晰視覺分隔的列表，例如聊天記錄、設置選單等。
+
+如何選擇
+使用 ListView.builder，如果你的列表不需要分隔線，或你希望在列表項內自行控制分隔線的樣式和邏輯。
+使用 ListView.separated，如果你的列表需要明確的、統一的分隔線（例如水平線或間距），且希望簡化分隔線的實現邏輯。
+兩者性能相近，都適合處理大型列表，因為它們只構建可見的列表項。
+
+注意事項
+如果列表項數量很少（例如少於 10 項），也可以考慮使用普通的 ListView（靜態列表），但對於動態或長列表，ListView.builder 或 ListView.separated 是更好的選擇。
+如果需要更複雜的列表行為（例如分組、固定標題等），可以考慮使用 SliverList 或第三方套件如 grouped_list。
+如果你有更具體的需求或範例，歡迎提供，我可以幫你進一步優化！
