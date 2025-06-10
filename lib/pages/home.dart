@@ -4,7 +4,7 @@ import 'package:fitness/components/SearchFieldSection.dart';
 import 'package:fitness/components/CategoriesSection.dart';
 import 'package:fitness/components/DietSection.dart';
 import 'package:fitness/components/PopularSection.dart';
-import 'package:fitness/components/App_bar.dart';
+import 'package:fitness/components/AppBar.dart';
 
 import 'package:fitness/models/CategoryModel.dart';
 import 'package:fitness/models/DietModel.dart';
