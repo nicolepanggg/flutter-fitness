@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       body: ListView(
         children: [
-          searchField(),
+          Searchfieldsection(),
           SizedBox(height: 40),
           CategoriesSection(categories: categories),
           SizedBox(height: 40),
