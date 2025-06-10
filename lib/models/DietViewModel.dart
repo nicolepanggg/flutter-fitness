@@ -11,7 +11,7 @@ class DietViewModel extends DietModel {
     required String duration,
     required String calorie,
     required Color boxColor,
-    required bool viewIsSelected,
+    required bool viewDisplay,
     this.selected = false, // Default not selected
   }) : super(
          name: name,
@@ -20,7 +20,7 @@ class DietViewModel extends DietModel {
          duration: duration,
          calorie: calorie,
          boxColor: boxColor,
-         viewIsSelected: viewIsSelected,
+         viewDisplay: viewDisplay,
        );
 
   // Factory constructor to create DietViewModel from DietModel
@@ -32,13 +32,8 @@ class DietViewModel extends DietModel {
       duration: dietModel.duration,
       calorie: dietModel.calorie,
       boxColor: dietModel.boxColor,
-      viewIsSelected: dietModel.viewIsSelected,
+      viewDisplay: dietModel.viewDisplay,
       selected: false, // Default not selected
     );
-  }
-
-  // Additional view logic can be added here
-  void toggleSelected() {
-    selected = !selected;
   }
 }

@@ -5,12 +5,12 @@ import '../styles/app_styles.dart'; // AppStyles
 
 class DietSection extends StatelessWidget {
   final List<DietViewModel> diets;
-  final Function(int) onDietSelected;
+  //final Function(int) onDietSelected;
 
   const DietSection({
     super.key,
     required this.diets,
-    required this.onDietSelected,
+    //required this.onDietSelected,
   });
 
   @override
@@ -68,37 +68,42 @@ class DietSection extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Container(
-                      //create a rectangular visual element that can be styled with properties like size, padding, margins, and decorations
-                      height: 45,
-                      width: 130,
-                      decoration: BoxDecoration(
-                        //Applies a linear gradient as the background of the container
-                        gradient: LinearGradient(
-                          colors: [
-                            diets[index].selected
-                                ? Color(0xff9DCEFF)
-                                : Colors.transparent,
-                            diets[index].selected
-                                ? Color(0xff92A3FD)
-                                : Colors.transparent,
-                          ],
-                        ),
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                      child: Center(
-                        child: Text(
-                          'View',
-                          style: TextStyle(
-                            color: diets[index].selected
-                                ? Colors.white
-                                : Color(0xffC58BF2),
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ),
-                    ),
+                    diets[index].viewDisplay
+                        ? Container(
+                            //create a rectangular visual element that can be styled with properties like size, padding, margins, and decorations
+                            height: 45,
+                            width: 130,
+                            decoration: BoxDecoration(
+                              //Applies a linear gradient as the background of the container
+                              gradient: LinearGradient(
+                                colors: [
+                                  /*diets[index].display
+                                  ? Color(0xff9DCEFF)
+                                  : Colors.transparent,
+                              diets[index].display
+                                  ? Color(0xff92A3FD)
+                                  : Colors.transparent,*/
+                                  Color(0xff9DCEFF),
+                                  Color(0xff92A3FD),
+                                ],
+                              ),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Center(
+                              child: Text(
+                                'View',
+                                style: TextStyle(
+                                  /*color: diets[index].display
+                                      ? Colors.white
+                                      : Color(0xffC58BF2),*/
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                          )
+                        : const SizedBox.shrink(),
                   ],
                 ),
               );

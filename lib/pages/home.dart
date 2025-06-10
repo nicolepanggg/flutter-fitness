@@ -1,6 +1,6 @@
 //reference flutter_css: https://drawcall.github.io/c2f/
 import 'package:flutter/material.dart';
-import 'package:fitness/components/search_field.dart';
+import 'package:fitness/components/SearchFieldSection.dart';
 import 'package:fitness/components/CategoriesSection.dart';
 import 'package:fitness/components/DietSection.dart';
 import 'package:fitness/components/PopularSection.dart';
@@ -35,13 +35,6 @@ class _HomePageState extends State<HomePage> {
     popularDiets = PopularDietsModel.getPopularDiets();
   }
 
-  void _onDietSelected(int index) {
-    //Update at 2025.06.10
-    setState(() {
-      diets[index].toggleSelected();
-    });
-  }
-
   @override //Update at 2025.06.10
   void initState() {
     super.initState();
@@ -58,12 +51,12 @@ class _HomePageState extends State<HomePage> {
         children: [
           searchField(),
           SizedBox(height: 40),
-          CategoriesSection(categories),
+          CategoriesSection(categories: categories),
           SizedBox(height: 40),
           //dietSection(diets),
-          DietSection(diets: diets, onDietSelected: _onDietSelected),
+          DietSection(diets: diets),
           SizedBox(height: 40),
-          PopularSection(popularDiets),
+          PopularSection(popularDiets: popularDiets),
           SizedBox(height: 40),
         ],
       ),
