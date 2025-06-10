@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../models/category_model.dart';
-import 'app_styles.dart'; // AppStyles
+import '../models/CategoryModel.dart';
+import '../styles/app_styles.dart'; // AppStyles
 import '../pages/category_detail_page.dart';
 
-Widget categoriesSection(List<CategoryModel> categories) {
+Widget CategoriesSection(List<CategoryModel> categories) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [

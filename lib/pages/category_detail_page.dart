@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../models/category_model.dart';
-import 'package:fitness/components/app_bar.dart';
+import '../models/CategoryModel.dart';
+import 'package:fitness/components/App_bar.dart';
 
 class CategoryDetailPage extends StatelessWidget {
   final CategoryModel category;

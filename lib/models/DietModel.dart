@@ -20,9 +20,9 @@ class DietModel {
   });
 
   static List<DietModel> getDiets() {
-    List<DietModel> diets = [];
-
-    diets.add(
+    //List<DietModel> diets = [];
+    //diets.add(
+    return [
       DietModel(
         name: 'Honey Pancake',
         iconPath: 'assets/icons/honey-pancakes.svg',
@@ -32,9 +32,8 @@ class DietModel {
         viewIsSelected: true,
         boxColor: Color(0xff9DCEFF),
       ),
-    );
-
-    diets.add(
+      //);
+      //diets.add(
       DietModel(
         name: 'Canai Bread',
         iconPath: 'assets/icons/canai-bread.svg',
@@ -44,8 +43,27 @@ class DietModel {
         viewIsSelected: false,
         boxColor: Color(0xffEEA4CE),
       ),
-    );
+      DietModel(
+        name: 'Apple Pie',
+        iconPath: 'assets/icons/honey-pancakes.svg',
+        level: 'Easy',
+        duration: '50mins',
+        calorie: '300kCal',
+        viewIsSelected: false,
+        boxColor: Color(0xFFF3E6E8),
+      ),
+      DietModel(
+        name: 'Orange Citrus Snack',
+        iconPath: 'assets/icons/canai-bread.svg',
+        level: 'Easy',
+        duration: '10mins',
+        calorie: '80kCal',
+        viewIsSelected: true,
+        boxColor: Color(0xFFFFF3C7),
+      ),
+    ];
+    //);
 
-    return diets;
+    //return diets;
   }
 }

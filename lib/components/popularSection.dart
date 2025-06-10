@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../models/popular_model.dart';
-import 'app_styles.dart'; // AppStyles
+import '../models/PopularModel.dart';
+import '../styles/app_styles.dart'; // AppStyles
 
-Widget popularSection(List<PopularDietsModel> popularDiets) {
+Widget PopularSection(List<PopularDietsModel> popularDiets) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [

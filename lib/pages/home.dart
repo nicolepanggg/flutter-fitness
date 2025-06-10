@@ -1,14 +1,15 @@
 //reference flutter_css: https://drawcall.github.io/c2f/
 import 'package:flutter/material.dart';
 import 'package:fitness/components/search_field.dart';
-import 'package:fitness/components/categoriesSection.dart';
-import 'package:fitness/components/dietSection.dart';
-import 'package:fitness/components/popularSection.dart';
-import 'package:fitness/components/app_bar.dart';
+import 'package:fitness/components/CategoriesSection.dart';
+import 'package:fitness/components/DietSection.dart';
+import 'package:fitness/components/PopularSection.dart';
+import 'package:fitness/components/App_bar.dart';
 
-import 'package:fitness/models/category_model.dart';
-import 'package:fitness/models/diet_model.dart';
-import 'package:fitness/models/popular_model.dart';
+import 'package:fitness/models/CategoryModel.dart';
+import 'package:fitness/models/DietModel.dart';
+import 'package:fitness/models/DietViewModel.dart'; //Update at 2025.06.10
+import 'package:fitness/models/PopularModel.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,13 +23,29 @@ class AppStyles {
 
 class _HomePageState extends State<HomePage> {
   List<CategoryModel> categories = [];
-  List<DietModel> diets = [];
+  List<DietViewModel> diets = [];
   List<PopularDietsModel> popularDiets = [];
 
   void _getInitialInfo() {
     categories = CategoryModel.getCategories();
-    diets = DietModel.getDiets();
+    //diets = DietModel.getDiets();
+    diets = DietModel.getDiets()
+        .map((diet) => DietViewModel.fromDietModel(diet))
+        .toList();
     popularDiets = PopularDietsModel.getPopularDiets();
+  }
+
+  void _onDietSelected(int index) {
+    //Update at 2025.06.10
+    setState(() {
+      diets[index].toggleSelected();
+    });
+  }
+
+  @override //Update at 2025.06.10
+  void initState() {
+    super.initState();
+    _getInitialInfo();
   }
 
   @override
@@ -41,11 +58,12 @@ class _HomePageState extends State<HomePage> {
         children: [
           searchField(),
           SizedBox(height: 40),
-          categoriesSection(categories),
+          CategoriesSection(categories),
           SizedBox(height: 40),
-          dietSection(diets),
+          //dietSection(diets),
+          DietSection(diets: diets, onDietSelected: _onDietSelected),
           SizedBox(height: 40),
-          popularSection(popularDiets),
+          PopularSection(popularDiets),
           SizedBox(height: 40),
         ],
       ),
