@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../models/CategoryModel.dart';
+import '../models/dataModel/CategoryModel.dart';
 import 'package:fitness/components/AppBar.dart';
 
 class CategoryDetailPage extends StatelessWidget {

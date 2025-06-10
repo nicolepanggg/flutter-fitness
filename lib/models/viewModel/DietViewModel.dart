@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'DietModel.dart';
+import '../dataModel/DietModel.dart';
 
 class DietViewModel extends DietModel {
   bool selected;
@@ -11,7 +11,7 @@ class DietViewModel extends DietModel {
     required String duration,
     required String calorie,
     required Color boxColor,
-    required bool viewDisplay,
+    required bool isDisabled,
     this.selected = false, // Default not selected
   }) : super(
          name: name,
@@ -20,7 +20,7 @@ class DietViewModel extends DietModel {
          duration: duration,
          calorie: calorie,
          boxColor: boxColor,
-         viewDisplay: viewDisplay,
+         isDisabled: isDisabled,
        );
 
   // Factory constructor to create DietViewModel from DietModel
@@ -32,8 +32,15 @@ class DietViewModel extends DietModel {
       duration: dietModel.duration,
       calorie: dietModel.calorie,
       boxColor: dietModel.boxColor,
-      viewDisplay: dietModel.viewDisplay,
+      isDisabled: dietModel.isDisabled,
       selected: false, // Default not selected
     );
+  }
+
+  bool isVisible() {
+    if (isDisabled) {
+      return false;
+    }
+    return true;
   }
 }

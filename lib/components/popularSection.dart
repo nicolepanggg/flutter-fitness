@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../models/PopularModel.dart';
+import '../models/dataModel/PopularModel.dart';
 import '../styles/app_styles.dart'; // AppStyles
 
 class PopularSection extends StatelessWidget {
@@ -36,7 +36,7 @@ class PopularSection extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
-                boxShadow: popularDiets[index].boxIsSelected
+                boxShadow: popularDiets[index].isDisabled
                     ? [
                         BoxShadow(
                           color: const Color(
@@ -126,7 +126,7 @@ class PopularSection extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(16),
-              boxShadow: popularDiets[index].boxIsSelected
+              boxShadow: popularDiets[index].isDisabled
                   ? [
                       BoxShadow(
                         color: const Color(

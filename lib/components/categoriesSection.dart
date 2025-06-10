@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../models/CategoryModel.dart';
+import '../models/dataModel/CategoryModel.dart';
 import '../styles/app_styles.dart'; // AppStyles
 import '../pages/CategoryDetailPage.dart';
 
@@ -26,7 +26,8 @@ class CategoriesSection extends StatelessWidget {
           ),
         ),
         SizedBox(height: 15), //margin 15
-        categories.isEmpty
+        categories
+                .isEmpty //if categories is empty
             ? const Padding(
                 padding: EdgeInsets.only(left: 20),
                 child: Text(

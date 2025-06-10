@@ -4,7 +4,7 @@ class PopularDietsModel {
   String level;
   String duration;
   String calorie;
-  bool boxIsSelected;
+  bool isDisabled;
 
   PopularDietsModel({
     required this.name,
@@ -12,7 +12,7 @@ class PopularDietsModel {
     required this.level,
     required this.duration,
     required this.calorie,
-    required this.boxIsSelected,
+    required this.isDisabled,
   });
 
   static List<PopularDietsModel> getPopularDiets() {
@@ -25,7 +25,7 @@ class PopularDietsModel {
         level: 'Medium',
         duration: '30mins',
         calorie: '230kCal',
-        boxIsSelected: true,
+        isDisabled: true,
       ),
     );
 
@@ -36,7 +36,7 @@ class PopularDietsModel {
         level: 'Easy',
         duration: '20mins',
         calorie: '120kCal',
-        boxIsSelected: false,
+        isDisabled: false,
       ),
     );
 

@@ -6,10 +6,10 @@ import 'package:fitness/components/DietSection.dart';
 import 'package:fitness/components/PopularSection.dart';
 import 'package:fitness/components/AppBar.dart';
 
-import 'package:fitness/models/CategoryModel.dart';
-import 'package:fitness/models/DietModel.dart';
-import 'package:fitness/models/DietViewModel.dart'; //Update at 2025.06.10
-import 'package:fitness/models/PopularModel.dart';
+import 'package:fitness/models/dataModel/CategoryModel.dart';
+import 'package:fitness/models/dataModel/DietModel.dart';
+import 'package:fitness/models/viewModel/DietViewModel.dart'; //Update at 2025.06.10
+import 'package:fitness/models/dataModel/PopularModel.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
