@@ -40,7 +40,7 @@ class DietModel {
         level: 'Easy',
         duration: '20mins',
         calorie: '230kCal',
-        isDisabled: false,
+        isDisabled: true,
         boxColor: Color(0xffEEA4CE),
       ),
       DietModel(

@@ -1,7 +1,29 @@
 import 'package:flutter/material.dart';
 import '../dataModel/DietModel.dart';
 
-class DietViewModel extends DietModel {
+class DietViewModel extends ChangeNotifier {
+  List<DietModel> _diets = [];
+
+  List<DietModel> get diets => _diets.where((diet) => isVisible(diet)).toList();
+
+  DietViewModel() {
+    _initialize();
+  }
+
+  void _initialize() {
+    _diets = DietModel.getDiets();
+    notifyListeners();
+  }
+
+  bool isVisible(DietModel diet) {
+    if (diet.isDisabled) {
+      return false;
+    }
+    return true;
+  }
+}
+
+/*class DietViewModel extends DietModel {
   bool selected;
 
   DietViewModel({
@@ -35,4 +57,4 @@ class DietViewModel extends DietModel {
     }
     return true;
   }
-}
+}*/

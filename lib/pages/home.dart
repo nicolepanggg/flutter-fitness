@@ -7,7 +7,6 @@ import 'package:fitness/components/PopularSection.dart';
 import 'package:fitness/components/AppBar.dart';
 
 import 'package:fitness/models/dataModel/CategoryModel.dart';
-import 'package:fitness/models/dataModel/DietModel.dart';
 import 'package:fitness/models/dataModel/PopularModel.dart';
 
 import 'package:fitness/models/viewModel/DietViewModel.dart'; //Update at 2025.06.10
@@ -30,10 +29,9 @@ class _HomePageState extends State<HomePage> {
 
   void _getInitialInfo() {
     categories = CategoryModel.getCategories();
-    //diets = DietModel.getDiets();
-    diets = DietModel.getDiets()
+    /*diets = DietModel.getDiets()
         .map((diet) => DietViewModel.fromDietModel(diet))
-        .toList();
+        .toList();*/
     popular = PopularModel.getPopular()
         .map((popular) => PopularViewModel.fromPopularModel(popular))
         .toList();
@@ -58,7 +56,7 @@ class _HomePageState extends State<HomePage> {
           CategoriesSection(categories: categories),
           SizedBox(height: 40),
           //dietSection(diets),
-          DietSection(diets: diets),
+          DietSection(),
           SizedBox(height: 40),
           PopularSection(popularDiets: popular),
           SizedBox(height: 40),
