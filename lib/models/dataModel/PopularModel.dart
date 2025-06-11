@@ -1,4 +1,6 @@
-class PopularDietsModel {
+import 'package:flutter/material.dart';
+
+class PopularModel {
   String name;
   String iconPath;
   String level;
@@ -6,7 +8,7 @@ class PopularDietsModel {
   String calorie;
   bool isDisabled;
 
-  PopularDietsModel({
+  PopularModel({
     required this.name,
     required this.iconPath,
     required this.level,
@@ -15,22 +17,18 @@ class PopularDietsModel {
     required this.isDisabled,
   });
 
-  static List<PopularDietsModel> getPopularDiets() {
-    List<PopularDietsModel> popularDiets = [];
-
-    popularDiets.add(
-      PopularDietsModel(
+  static List<PopularModel> getPopular() {
+    //List<PopularDietsModel> popularDiets = [];
+    return [
+      PopularModel(
         name: 'Blueberry Pancake',
         iconPath: 'assets/icons/blueberry-pancake.svg',
         level: 'Medium',
         duration: '30mins',
         calorie: '230kCal',
-        isDisabled: true,
+        isDisabled: false,
       ),
-    );
-
-    popularDiets.add(
-      PopularDietsModel(
+      PopularModel(
         name: 'Salmon Nigiri',
         iconPath: 'assets/icons/salmon-nigiri.svg',
         level: 'Easy',
@@ -38,8 +36,6 @@ class PopularDietsModel {
         calorie: '120kCal',
         isDisabled: false,
       ),
-    );
-
-    return popularDiets;
+    ];
   }
 }

@@ -8,8 +8,10 @@ import 'package:fitness/components/AppBar.dart';
 
 import 'package:fitness/models/dataModel/CategoryModel.dart';
 import 'package:fitness/models/dataModel/DietModel.dart';
-import 'package:fitness/models/viewModel/DietViewModel.dart'; //Update at 2025.06.10
 import 'package:fitness/models/dataModel/PopularModel.dart';
+
+import 'package:fitness/models/viewModel/DietViewModel.dart'; //Update at 2025.06.10
+import 'package:fitness/models/viewModel/PopularViewModel.dart'; //Update at 2025.06.11
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -24,7 +26,7 @@ class AppStyles {
 class _HomePageState extends State<HomePage> {
   List<CategoryModel> categories = [];
   List<DietViewModel> diets = [];
-  List<PopularDietsModel> popularDiets = [];
+  List<PopularViewModel> popular = [];
 
   void _getInitialInfo() {
     categories = CategoryModel.getCategories();
@@ -32,7 +34,9 @@ class _HomePageState extends State<HomePage> {
     diets = DietModel.getDiets()
         .map((diet) => DietViewModel.fromDietModel(diet))
         .toList();
-    popularDiets = PopularDietsModel.getPopularDiets();
+    popular = PopularModel.getPopular()
+        .map((popular) => PopularViewModel.fromPopularModel(popular))
+        .toList();
   }
 
   @override //Update at 2025.06.10
@@ -56,7 +60,7 @@ class _HomePageState extends State<HomePage> {
           //dietSection(diets),
           DietSection(diets: diets),
           SizedBox(height: 40),
-          PopularSection(popularDiets: popularDiets),
+          PopularSection(popularDiets: popular),
           SizedBox(height: 40),
         ],
       ),

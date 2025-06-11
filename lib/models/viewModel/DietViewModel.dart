@@ -5,23 +5,15 @@ class DietViewModel extends DietModel {
   bool selected;
 
   DietViewModel({
-    required String name,
-    required String iconPath,
-    required String level,
-    required String duration,
-    required String calorie,
-    required Color boxColor,
-    required bool isDisabled,
+    required super.name,
+    required super.iconPath,
+    required super.level,
+    required super.duration,
+    required super.calorie,
+    required super.boxColor,
+    required super.isDisabled,
     this.selected = false, // Default not selected
-  }) : super(
-         name: name,
-         iconPath: iconPath,
-         level: level,
-         duration: duration,
-         calorie: calorie,
-         boxColor: boxColor,
-         isDisabled: isDisabled,
-       );
+  });
 
   // Factory constructor to create DietViewModel from DietModel
   factory DietViewModel.fromDietModel(DietModel dietModel) {
